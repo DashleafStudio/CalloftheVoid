@@ -1,0 +1,181 @@
+[Archive] - Only viewable from link, not in game
+(PLANNED) Major Update v0.0.40 (Pre-Alpha) April 24th 2025:
+-- Added --
+        - Milo Attack, Milo Passive, Milo Ultimate.
+        - Roy Attack, Roy Active Ability, Roy Ultimate.
+-- Balancing --
+        - Ryan Attack Speed has been increased from 2.5 -> 3
+-- Fixed --
+        - Akumetsu not being able to dash up or down
+
+Major Update v0.0.39 (Pre-Alpha) April 24th 2025:
+-- Added --
+        - Balor Passive: When slowed, ignore effect and gain +5 DEF and +15 ATK for 5 seconds.
+        - Balor Ultimate: Drops 8 Elixir's around Balor, heals him by 2% Max HP/s, and slows Enemies
+          in it by an extra 20% | (Cooldown 60s, Duration 15s, Unlocked Level 3)
+        - New Status Effect, Slowed. Reduces Speed by 30%. Balor Ultimate will slow by 50%.
+
+        - Ivy Passive: Become Invulnerable for 2s (20s Cooldown)
+        - New Status Effect, Invulnerable. Become immune to all damage.
+
+        - Klint Passive: On death Resurrect for 5s and become Invulnerable to any damage, 
+          if you kill an Enemy within this time you will be Revived with 2 * Level + 2% Max HP left. 
+          Become 50% Slowed for the duration and 99% Blind. (120s Cooldown)
+        - New Status Effect, Blinded. Will cover screen with specified opacity.
+
+-- Balancing --
+        - Added a system that will scale Enemy Stats based on their Species and their Ranking.
+        - Eidarach and his minion AoEs will now do damage slightly earlier before they disappear.
+        - Eidarach Minion AoE size has been reduced 30%, this is will balance them a little better and help
+          the player differentiate between Eidarach and his minions.
+        - Ivy Attack Speed increased from 2 to 2.5, this is also reflected in her Ultimate. Her Ultimate
+          Attack Speed has been changed from 4 Attack Speed to 5 Attack Speed
+        - Ivy Attack Damage has been increased from 30 -> 40
+-- Fixed --
+        - Enemy Slowed status effect set to wrong timer
+        - HP Regeneration causing HP to not equal Max HP (if Max HP is 80 then usually 80.03, or 79.98)
+
+
+Progress Report | April 20th 2025:
+Currently adding multiple new Characters and finishing some to have all abilities.
+Balor - finishing
+Ivy - finishing
+Klint - finishing
+Milo - adding
+Roy - adding
+Ryan - finishing
+
+Progress Report | April 18th 2025:
+Currently reworking the Enemy system.
+Pause menu working.
+
+Hotfix v0.0.38c (Pre-Alpha) April 16th 2025:
+-- Fixed --
+        - Checking Game Version on startup through settings.ini would sometimes give Game Outdated.
+
+Hotfix v0.0.38b (Pre-Alpha) April 16th 2025:
+-- Fixed --
+        - Control Remap buttons showing when Controls is not open in Settings.
+
+Patch v0.0.38 (Pre-Alpha) April 16th 2025:
+-- Added --
+        - I've started adding the basics for control remapping, next update will fully have it.
+        - Pausing game. You can now pause the game using Escape, the Settings button will be fixed shortly.
+        - New game outdated message. It will now provide the Game Version, Server Version, and a Reason as to why.
+          the game might be outdated. I will put a reason here if im updating the game, releasing a hotfix, or it's down.
+        - Holding down Escape for 2 seconds will now close the Game, holding F2 for 2 seconds will reset settings.
+        - Sprite for Eidarach and his Minions (credit to MaYo)
+-- Balancing --
+        - Akumetsu Active Ability dash range increased: 24 -> 28.
+        - Akumetsu's Demon Warrior attacks are now 2x smaller.
+        - All Character's now have 1 more speed point.
+-- Fixed --
+        - Eidarach spawning more than 3 Minions, or more than specified.
+        - Akumetsu's Active Ability can now only be used when moving. This will prevent the user
+          from wasting his Active Ability. Before you could be standing still and it would use on Right Mouse Press.
+        - Tried another fix for the Game Outdated bug. Let me know if it works or not.
+        - Balor's AoE now properly reduces Enemy Defense.
+
+Progress Report | April 16th 2025:
+-- Planned --
+        - Looting.
+        - More Enemies, along with rankings and species.
+        - A Shop / Trader.
+        - More Maps.
+        - More Characters.
+        - Lighting, Shaders, Effects, Sounds.
+        - More Sprites.
+        - Fix Stat icons and correctly display Stats on Character Select screen.
+
+Patch v0.0.37 (Pre-Alpha) April 13th 2025:
+-- Added --
+        - Raycast option under Gameplay Settings. This will stop Enemies from shooting at you behind walls.
+        - Main Menu background art.
+        - Some new Player sprites.
+        - Somewhat added progression. After fully clearing a Map, you will be sent back to the Map Screen, and the
+          map you chose will be locked, meaning you completed it.
+-- Fixed --
+        - Picking some implemented Characters would crash the game. Some still do, but they aren't able to be played.
+-- Known Issues --
+        - As stated in a previous Hotfix, Balor's AoE will shred Enemy Defense. I have not gotten around to doing this yet.
+
+Hotfix v0.0.36c (Pre-Alpha) April 13th 2025:
+-- Fixed --
+        - Attempted to fix Deadly Poison reducing Defense by 10%, currently just completely nukes it. Will fix later.
+
+Hotfix v0.0.36b (Pre-Alpha) April 13th 2025:
+-- Balancing --
+        - Balor's AoE attacks now expire 1.5x quicker.
+
+Hotfix v0.0.36 (Pre-Alpha) April 13th 2025:
+-- Fixed --
+        - Game crashing when selecting Character Ryan.
+        - When Enemy is Poisoned with Deadly Poison it will no longer show the normal Poison icon along with Deadly Poison.
+-- Other --
+        - Added an Icon to the games exe file.
+
+Major Update v0.0.35 (Pre-Alpha) April 12th 2025:
+-- Balancing --
+        - Burn Damage from all sources now has a 0.9 ratio instead of 0.1. This will cause Burn to do a little extra Damage.
+        - Eidarach's AoE spawn timer has been increased by 2x, this will make it easier to dodge his AoE attacks.
+        - Eidarach's AoE size has been decreased by 1.6x.
+        - Eidarach's Minion AoE size has been decreased by 1.6x.
+        - Balor's AoE size has been decreased by 2x.
+-- Added --
+        - AoE attacks will now slowly fade out depending on when they will disappear.
+        - HP Regen.
+        - Health Bars.
+        - New Character Balor (Abilities not implemented yet).
+        - Active Ability for character Akumetsu.
+        - Stat Icons.
+        - Changed some text on the Character Selection screen with the same I did for the Main Menu.
+-- Fixed --
+        - Changed the system that calculates damage, should now properly account for Lethality.
+        - If others Defense is greater than your Damage then your attacks will do 1 Damage, same with Enemies.
+        - Akumetsu's Ultimate now properly calculates the Players Lethality in its Damage output.
+        - Reset Settings button showing when in Controls setting menu.
+        - AoE's blinking when spawned.
+        - Incorrect Stats showing on Character Select screen.
+-- Other --
+        - I've gone ahead and made a simple auto updater for the game, this way you can update it quick and easy.
+
+Patch v0.0.34 (Pre-Alpha) April 12th 2025:
+-- Added --
+        - Ultimate Ability for character Akumetsu.
+        - Passive Ability for character Akumetsu.
+        - Controls section in Settings.
+        - Quick Reset Hotkey, holding down F2 anywhere will Reset Settings and close game.
+-- Fixed --
+        - XP System.
+        - Attack Speed System.
+-- Balancing --
+        - Attack Speed System now has a 50% Soft Cap, any Bonus Attack Speed above 50% will give half value.
+
+Patch v0.0.33 (Pre-Alpha) April 11th 2025:
+-- Added --
+        - New map "Ashen Veil", this is set to Locked for now.
+        - Added a blinking bar for the Frame Limit setting to know when typing.
+-- Changed --
+        - Text of all Settings have been coded in instead of being drawn with the sprite, this will result in clearer text.
+        - Text of Main Menu buttons have been coded in instead of being drawn with the sprite, this will result in clearer text.
+
+Patch v0.0.32 (Pre-Alpha) April 10th 2025:
+-- Added --
+        - Game Version check. If your game doesn't match the servers version then it will ask to update.
+        - Client Type and Client Version is shown at the top left of the Main Menu.
+
+Hotfix v0.0.31 (Pre-Alpha) April 10th 2025:
+ -- Fixed --
+        - FPS Limit reading "60" when not actually.
+
+Patch v0.0.30 (Pre-Alpha) April 10th 2025:
+ -- Added --
+        - Fully functional VSync, Frame Limit, Window Mode, Anti-Aliasing settings (Window Resolution is under testing).
+        - Fully functional File Load and Save, this is used for settings currently.
+        - Patch notes. This is a test to load Patch notes from a website I have.
+ -- Planned --
+        - Control Remapping
+        - Full Character implementation
+        - Full Map implementation
+        - Few Enemies for testing
+        - Looting, Item drops.
