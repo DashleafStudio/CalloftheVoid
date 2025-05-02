@@ -1,0 +1,33 @@
+Major Update v0.0.39 (Pre-Alpha) April 24th 2025:
+-- Added --
+        - Balor Passive: When slowed, ignore effect and gain +5 DEF and +15 ATK for 5 seconds.
+        - Balor Ultimate: Drops 8 Elixir's around Balor, heals him by 2% Max HP/s, and slows Enemies
+          in it by an extra 20% | (Cooldown 60s, Duration 15s, Unlocked Level 3)
+        - New Status Effect, Slowed. Reduces Speed by 30%. Balor Ultimate will slow by 50%.
+ 
+        - Ivy Passive: Become Invulnerable for 2s (20s Cooldown)
+        - New Status Effect, Invulnerable. Become immune to all damage.
+ 
+        - Klint Passive: On death Resurrect for 5s and become Invulnerable to any damage, 
+          if you kill an Enemy within this time you will be Revived with 2 * Level + 2% Max HP left. 
+          Become 50% Slowed for the duration and 99% Blind. (120s Cooldown)
+        - New Status Effect, Blinded. Will cover screen with specified opacity.
+ 
+        - Health Bars, all Enemies and Player should now have a Health Bar.
+-- Balancing --
+        - Added a system that will scale Enemy Stats based on their Species and their Ranking.
+        - Eidarach and his minion AoEs will now do damage slightly earlier before they disappear.
+        - Eidarach Minion AoE size has been reduced 30%, this is will balance them a little better and help
+          the player differentiate between Eidarach and his minions.
+        - Ivy Attack Speed increased from 2 to 2.5, this is also reflected in her Ultimate. Her Ultimate
+          Attack Speed has been changed from 4 Attack Speed to 5 Attack Speed
+        - Ivy Attack Damage has been increased from 30 -> 40
+-- Fixed --
+        - Enemy Slowed status effect set to wrong timer
+        - HP Regeneration causing HP to not equal Max HP (if Max HP is 80 then usually 80.03, or 79.98)
+ 
+ 
+ 
+ 
+ 
+view planned and archived Patch Notes here: https://pastebin.com/Z5WA7kZF
