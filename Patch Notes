@@ -1,3 +1,7 @@
+Small Update (Non-Gameplay related) v0.0.39 (Pre-Alpha) May 2nd 2025:
+I have migrated the game "server" from pastebin to github. This will allow
+more flexibility and will be more dynamic hopefully.
+
 Major Update v0.0.39 (Pre-Alpha) April 24th 2025:
 -- Added --
         - Balor Passive: When slowed, ignore effect and gain +5 DEF and +15 ATK for 5 seconds.
@@ -25,9 +29,5 @@ Major Update v0.0.39 (Pre-Alpha) April 24th 2025:
 -- Fixed --
         - Enemy Slowed status effect set to wrong timer
         - HP Regeneration causing HP to not equal Max HP (if Max HP is 80 then usually 80.03, or 79.98)
- 
- 
- 
- 
- 
+
 view planned and archived Patch Notes here: https://pastebin.com/Z5WA7kZF
