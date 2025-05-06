@@ -1,4 +1,4 @@
-name: Notify Discord on Commit
+name: Discord GitHub Notify
 
 on:
   push:
@@ -6,14 +6,29 @@ on:
       - main
 
 jobs:
-  discord:
+  notify-discord:
     runs-on: ubuntu-latest
     steps:
-      - name: Send formatted commit message to Discord
-        uses: Ilshidur/action-discord@master
+      - name: Send fancy commit embed to Discord
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        with:
-          args: |
-            **[CalloftheVoid:main]** ${{ github.event.commits | size }} new ${{ github.event.commits | size > 1 && 'commits' || 'commit' }}
-            [`${{ github.event.head_commit.id.substr(0, 7) }}`](${{ github.event.head_commit.url }}) ${{ github.event.head_commit.message }} - ${{ github.actor }}
+        run: |
+          echo "{
+            \"username\": \"${{ github.actor }}\",
+            \"avatar_url\": \"https://github.com/${{ github.actor }}.png\",
+            \"embeds\": [{
+              \"title\": \"[${{ github.repository }}:main] ${{ github.event.commits | size }} new ${{ github.event.commits | size > 1 && 'commits' || 'commit' }}\",
+              \"url\": \"${{ github.event.head_commit.url }}\",
+              \"color\": 7506394,
+              \"fields\": [{
+                \"name\": \"\",
+                \"value\": \"[\`${{ github.event.head_commit.id.substr(0, 7) }}\`](${{ github.event.head_commit.url }}) ${{ github.event.head_commit.message }} - ${{ github.actor }}\"
+              }],
+              \"footer\": {
+                \"text\": \"GitHub\",
+                \"icon_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\"
+              },
+              \"timestamp\": \"${{ github.event.head_commit.timestamp }}\"
+            }]
+          }" > payload.json
+          curl -X POST -H "Content-Type: application/json" -d @payload.json $DISCORD_WEBHOOK
