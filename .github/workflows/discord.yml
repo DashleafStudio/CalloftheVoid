@@ -15,17 +15,21 @@ jobs:
         with:
           script: |
             const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-            const commitMessage = github.event.head_commit.message;
-            const commitId = github.sha.substring(0, 7);
+            
+            // Check if there are multiple commits
             const commitsCount = github.event.commits.length;
             const repoName = github.repository.split('/')[1];
-
-            const content = `
-              **Avatar** comfrog559098
-              **[${repoName}:main]** ${commitsCount} new commit${commitsCount > 1 ? 's' : ''}: [Repository Link](https://github.com/${github.repository})
-              **Commit ID** ${commitId} [Commit Link](https://github.com/${github.repository}/commit/${commitId})
-              ${commitMessage} - comfrog559098
-            `;
+            
+            let content = `**Avatar** comfrog559098\n`;
+            content += `**[${repoName}:main]** ${commitsCount} new commit${commitsCount > 1 ? 's' : ''}: [Repository Link](https://github.com/${github.repository})\n`;
+            
+            // Iterate through commits and create message for each
+            github.event.commits.forEach(commit => {
+              const commitId = commit.id.substring(0, 7);
+              const commitMessage = commit.message;
+              content += `**Commit ID** ${commitId} [Commit Link](https://github.com/${github.repository}/commit/${commitId})\n`;
+              content += `${commitMessage} - comfrog559098\n`;
+            });
 
             const response = await fetch(webhookUrl, {
               method: 'POST',
