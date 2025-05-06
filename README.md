@@ -1,4 +1,4 @@
-# CalloftheVoid
+# What is this?
 Official repository for my game Call of the Void
 
 # Call of the Void - Modding Guidelines
