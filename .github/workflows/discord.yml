@@ -19,4 +19,5 @@ jobs:
           content: |
             **Avatar** comfrog559098
             **[rom:main]** ${{ github.event.commits.length }} new commit${{ github.event.commits.length > 1 && 's' || '' }}: [Repository Link](https://github.com/DashleafStudio/CalloftheVoid)
-            ${{ github.sha.substring(0, 7) }} [Commit Link](https://github.com/DashleafStudio/CalloftheVoid/commit/${{ github.sha }}) {{ github.event.head_commit.message }} - comfrog559098
+            **Commit ID** ${{ github.sha }} [Commit Link](https://github.com/DashleafStudio/CalloftheVoid/commit/${{ github.sha }}) 
+            {{ github.event.head_commit.message }} - comfrog559098
