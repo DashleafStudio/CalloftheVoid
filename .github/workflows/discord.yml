@@ -11,13 +11,32 @@ jobs:
 
     steps:
       - name: Send commit information to Discord
-        uses: tsickert/discord-webhook-action@v1.2.0
+        uses: actions/github-script@v6
         with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          username: 'GitHub'
-          avatar_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' # GitHub logo
-          content: |
-            **Avatar** comfrog559098
-            **[rom:main]** ${{ github.event.commits.length }} new commit${{ github.event.commits.length > 1 && 's' || '' }}: [Repository Link](https://github.com/DashleafStudio/CalloftheVoid)
-            **Commit ID** ${{ github.sha }} [Commit Link](https://github.com/DashleafStudio/CalloftheVoid/commit/${{ github.sha }}) 
-            {{ github.event.head_commit.message }} - comfrog559098
+          script: |
+            const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+            const commitMessage = github.event.head_commit.message;
+            const commitId = github.sha.substring(0, 7);
+            const commitsCount = github.event.commits.length;
+            const repoName = github.repository.split('/')[1];
+
+            const content = `
+              **Avatar** comfrog559098
+              **[${repoName}:main]** ${commitsCount} new commit${commitsCount > 1 ? 's' : ''}: [Repository Link](https://github.com/${github.repository})
+              **Commit ID** ${commitId} [Commit Link](https://github.com/${github.repository}/commit/${commitId})
+              ${commitMessage} - comfrog559098
+            `;
+
+            const response = await fetch(webhookUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ content }),
+            });
+
+            if (!response.ok) {
+              throw new Error(`Error sending Discord message: ${response.statusText}`);
+            }
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
