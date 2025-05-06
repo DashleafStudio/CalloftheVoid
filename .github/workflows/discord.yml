@@ -18,5 +18,5 @@ jobs:
           avatar_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' # GitHub logo
           content: |
             **Avatar** comfrog559098
-            **[rom:main]** ${{ github.event.commits | size }} new commit{{ github.event.commits | size > 1 && 's' || '' }}: [Repository Link](https://github.com/DashleafStudio/CalloftheVoid)
+            **[rom:main]** ${{ github.event.commits.length }} new commit${{ github.event.commits.length > 1 && 's' || '' }}: [Repository Link](https://github.com/DashleafStudio/CalloftheVoid)
             ${{ github.sha.substring(0, 7) }} [Commit Link](https://github.com/DashleafStudio/CalloftheVoid/commit/${{ github.sha }}) {{ github.event.head_commit.message }} - comfrog559098
