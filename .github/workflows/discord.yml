@@ -1,4 +1,4 @@
-name: Discord Webhook Commit Notifications
+name: Discord Commit Notifications
 
 on:
   push:
@@ -10,37 +10,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send commit information to Discord
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-            
-            // Check if there are multiple commits
-            const commitsCount = github.event.commits.length;
-            const repoName = github.repository.split('/')[1];
-            
-            let content = `**Avatar** comfrog559098\n`;
-            content += `**[${repoName}:main]** ${commitsCount} new commit${commitsCount > 1 ? 's' : ''}: [Repository Link](https://github.com/${github.repository})\n`;
-            
-            // Iterate through commits and create message for each
-            github.event.commits.forEach(commit => {
-              const commitId = commit.id.substring(0, 7);
-              const commitMessage = commit.message;
-              content += `**Commit ID** ${commitId} [Commit Link](https://github.com/${github.repository}/commit/${commitId})\n`;
-              content += `${commitMessage} - comfrog559098\n`;
-            });
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-            const response = await fetch(webhookUrl, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ content }),
-            });
+    - name: Get commit details
+      id: commit_info
+      run: |
+        echo "::set-output name=commit_message::$(git log -1 --pretty=%B)"
+        echo "::set-output name=commit_id::$(git log -1 --pretty=%h)"
+        echo "::set-output name=commit_url::$(git log -1 --pretty=%H)"
+        echo "::set-output name=commit_author::$(git log -1 --pretty=%an)"
+        echo "::set-output name=commit_avatar::$(git log -1 --pretty=%aE)"
 
-            if (!response.ok) {
-              throw new Error(`Error sending Discord message: ${response.statusText}`);
-            }
-        env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    - name: Send commit info to Discord
+      uses: tsickert/discord-webhook-action@v1.2.0
+      with:
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        username: 'GitHub Actions'
+        avatar_url: ${{ steps.commit_info.outputs.commit_avatar }}
+        content: |
+          **AVATAR:** ${{ steps.commit_info.outputs.commit_author }}
+          **[${{ github.repository }}:${{ github.ref }}]** ${{ github.event.commits | size }} new commit(s)
+          [LINK TO REPOSITORY](${{
+          github.repository_url
+          }})
+          **${{ steps.commit_info.outputs.commit_id }}**
+          [LINK TO COMMIT](https://github.com/${{ github.repository }}/commit/${{ steps.commit_info.outputs.commit_id }})
+          ${{ steps.commit_info.outputs.commit_message }}
