@@ -1,4 +1,4 @@
 curl -H "Content-Type: application/json" \
 -X POST \
 -d '{"content": "Hello, Discord!"}' \
-YOUR_DISCORD_WEBHOOK_URL
+https://discord.com/api/webhooks/1369408115518341221/dCV6KMxFsunKgO0q--Dply2lxMRiXT7RHaCa_A_Kla2_SObhFNyVCAsxcfLGwW16cI9e
