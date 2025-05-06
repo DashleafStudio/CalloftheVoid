@@ -1,6 +1,6 @@
 # What is this?
 Official repository for my game Call of the Void
-e
+
 # Call of the Void - Modding Guidelines
 
 We’re excited for players to create mods for *Call of the Void*! Here are the rules and guidelines you must follow when modding the game:
