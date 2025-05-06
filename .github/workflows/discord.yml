@@ -1,3 +1,4 @@
-{
-  "content": "Test Message"
-}
+curl -H "Content-Type: application/json" \
+-X POST \
+-d '{"content": "Hello, Discord!"}' \
+YOUR_DISCORD_WEBHOOK_URL
