@@ -22,3 +22,7 @@ We’re excited for players to create mods for *Call of the Void*! Here are the 
 By following these guidelines, you’ll help us keep the modding community respectful of the game’s assets and fair use.
 
 Thank you for supporting *Call of the Void*!
+
+
+# Ignore (Version Backup)
+win11_exp0.0.40_prealpha
